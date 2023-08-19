@@ -14,6 +14,14 @@ load_dotenv()
 
 os.getenv("OPENAI_API_KEY")
 
+app_directory = os.path.abspath(os.path.dirname(__file__))
+
+# Define the relative path to the PDF file
+pdf_filename = "tariff2.pdf"
+
+# Construct the absolute path to the PDF file
+pdf_path = os.path.join(app_directory, pdf_filename)
+
 knowledge_base = None
 chain = None
 messages = []
@@ -28,7 +36,7 @@ def index():
         if api_key:
             os.environ["OPENAI_API_KEY"] = api_key
             
-            pdf = "/Users/jorgendigre/Desktop/tariff2.pdf"
+            pdf = "tariff2.pdf"
             
             if pdf is not None:
                 pdf_reader = PdfReader(pdf)
@@ -79,4 +87,4 @@ def ask_question():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
