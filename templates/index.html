@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF Chat</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">PDF Chat</h1>
+
+        <!-- OpenAI API Key Input -->
+        <div class="row mt-4">
+            <div class="col">
+                <form action="/" method="post">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="api-key" placeholder="Enter OpenAI API Key">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">Start Chat</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="row mt-4">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="message received">Hello, ask me anything about Akkordtariffen2022.pdf!</div>
+                        {% for message in messages %}
+                            <div class="message">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Input -->
+        <div class="row mt-4">
+            <div class="col">
+                <form action="/ask" method="post">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="user-question" placeholder="Ask a question...">
+                        <div class="input-group-append">
+                            <button class="btn btn-success" type="submit">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
